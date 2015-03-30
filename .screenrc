@@ -1,0 +1,96 @@
+###############################################################################
+#
+#  ~/.screenrc
+#
+###############################################################################
+
+
+# =============================================================================
+#    Shell
+# =============================================================================
+
+hell -${SHELL}
+
+
+# =============================================================================
+#    Constantes
+# =============================================================================
+
+#  %n - numero de fenetre
+#  %t - titre de fenetre
+#  %w -
+#  %s -
+
+
+# =============================================================================
+#     Variables
+# =============================================================================
+
+startup_message off  # pas d'affichage du corpyright au demarage
+vbell           off  # pas de bip visuel en cas d'erreur
+activity        "activity in %n (%t) [%w:%s]~" # notification d'activite
+deflogin        on   #
+defscrollback   1000 # nombre de lignes que l'on peut remonter
+
+
+# =============================================================================
+#     Keybindings
+# =============================================================================
+
+# ^ = Ctrl (note C-)
+
+#escape ^Ot # change C-a en C-t (garder C-a pour retour en debut de ligne)
+escape ^Tt # change C-a en C-t (garder C-a pour retour en debut de ligne)
+
+bind ^k kill     # C-t C-k : tuer la fenetre courante
+bind ^\          # C-t C-\ : tuer toutes les fenetres et quitter
+bind k           # C-t k : rien
+bind \\          # C-t \ : rien
+bind I login on  #
+bind O login off #
+
+bind y copy    # C-t y : mode copie (utiliser 'espace' pour selection)
+bind p paste . # C-t p : colle le buffer dans la fenetre courante
+
+bind + resize +1 # C-t + : augmente la taille de l'ecran apres C-t S
+bind - resize -1 # C-t - : diminue la taille de l'ecran apres C-t S
+bind _ resize max # C-t _ : donne a l'ecran la taille maximale
+bind = resize =
+
+
+# =============================================================================
+#     Termcap and Terminfo
+# =============================================================================
+
+termcapinfo xterm "ve=\E[?25h\E[?17;0;64c"
+termcapinfo linux "ve=\E[?25h\E[?17;0;64c"
+
+shelltitle "$|shell"
+
+
+# =============================================================================
+#     Caption
+# =============================================================================
+
+caption always "%{+u wk}%?%-w%?%{rk}[%n %t]%{wk}%?%+w%?"
+
+
+# =============================================================================
+#     Hardstatus
+# =============================================================================
+
+hardstatus alwayslastline "%{kw}[ %H ] %{kg}[ %D %d.%m.%Y - %c ] %{kr}[ %l ]"
+#%-26=%1`"
+
+
+# =============================================================================
+#     Commandes de base
+# =============================================================================
+#
+# C-t s : freeze
+# C-t q : defrise
+# C-t S : split horizontal
+# C-t X : supprime un split
+# C-t TAB : navigue entre split
+# 
+
